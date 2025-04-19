@@ -1,6 +1,7 @@
 import pygame 
 import sys
 from grid import Grid
+from colors import *
 
 pygame.init()
 
@@ -17,9 +18,9 @@ MIN_HEIGHT = 600
 
 while True:
     for square in Grid.draw_grid_squares():
-        pygame.draw.rect(SCREEN, (0, 0, 0), square)
+        pygame.draw.rect(SCREEN, GRAY, square)
         inset_rect = square.inflate(-2, -2)
-        pygame.draw.rect(SCREEN, (128, 128, 128), inset_rect)
+        pygame.draw.rect(SCREEN, BLACK, inset_rect)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

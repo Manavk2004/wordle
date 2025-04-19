@@ -10,8 +10,8 @@ class Grid:
 
     def draw_grid_squares(self):
         squares = []
-        for column in range(self.num_cols):
-            for row in range(self.num_rows):
+        for row in range(self.num_rows):
+            for column in range(self.num_cols):
                 rect = pygame.Rect(column*self.grid_size+450, row*self.grid_size+260, self.grid_size-5, self.grid_size-5)
                 squares.append(rect)
         return squares
