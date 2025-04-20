@@ -1,11 +1,11 @@
 import pygame 
 import sys
-from grid import Grid
+from grid import *
 from colors import *
 
 pygame.init()
 
-Grid = Grid()
+grid = Grid()
 
 SCREEN = pygame.display.set_mode((1200, 1000))
 width, height = SCREEN.get_size()
@@ -26,6 +26,10 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+   
+        if event.type == pygame.KEYDOWN:
+            print(event.unicode)
+        
 
     pygame.display.update()
     clock.tick(60)

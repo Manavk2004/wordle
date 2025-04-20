@@ -10,7 +10,5 @@ class RandomWord:
         self.f.close()
 
 
-with RandomWord() as word:
-    print (f"Your random words is {word}")
 
 
