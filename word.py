@@ -1,5 +1,7 @@
 import random
 
+#opens text file that has 400k words in which the computer will iterate through
+
 class RandomWord:
     def __enter__(self):
         self.f = open("words.txt", "r")
