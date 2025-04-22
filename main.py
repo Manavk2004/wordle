@@ -7,6 +7,7 @@ pygame.init()
 
 
 grid = Grid()
+grid.got_word()
 
 SCREEN = pygame.display.set_mode((1200, 1000))
 width, height = SCREEN.get_size()
@@ -27,10 +28,10 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
-            sys.exit()
    
         if event.type == pygame.KEYDOWN:
-            grid.replace_l_event(event)
+            grid.replace_l_event(event, SCREEN)
+            
     grid.draw_grid_squares(SCREEN)
     pygame.display.update()
     clock.tick(60)
