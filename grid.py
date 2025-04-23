@@ -1,6 +1,7 @@
 import pygame
 from word import RandomWord
 from colors import *
+from keyboard_handler import *
 
 pygame.font.init()
 FONT = pygame.font.SysFont("arial", 48)
@@ -20,6 +21,8 @@ class Grid:
         self.current_row = 0
         self.actual_wordle = []
         self.word = []
+
+        
     
 
     
@@ -123,4 +126,6 @@ class Grid:
                         break
 
                 
-    #####NEED TO FIGURE OUT HOW TO AVOID DUPLICATE CHECKS
+
+
+

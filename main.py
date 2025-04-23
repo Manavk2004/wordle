@@ -28,6 +28,8 @@ while True:
         pygame.draw.rect(SCREEN, GRAY, square)
         inset_rect = square.inflate(-2, -2)
         pygame.draw.rect(SCREEN, BLACK, inset_rect)
+
+
     
     for letter, rect in key.draw_line1(SCREEN):
         pygame.draw.rect(SCREEN, GRAY, rect)
@@ -46,7 +48,7 @@ while True:
         text_rect = text_surface.get_rect(center=rect.center)
         SCREEN.blit(text_surface, text_rect)
 
-        
+
 
     for letter, rect in key.draw_line3(SCREEN):
         pygame.draw.rect(SCREEN, GRAY, rect)
@@ -56,6 +58,9 @@ while True:
         text_rect = text_surface.get_rect(center=rect.center)
         SCREEN.blit(text_surface, text_rect)
 
+                
+
+
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -63,6 +68,19 @@ while True:
    
         if event.type == pygame.KEYDOWN:
             grid.replace_l_event(event, SCREEN)
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_pos = pygame.mouse.get_pos()
+
+            key_buttons = key.draw_line1(SCREEN) + key.draw_line2(SCREEN) + key.draw_line3(SCREEN)
+
+            for letter, rect in key_buttons:
+                if rect.collidepoint(mouse_pos):
+                    if grid.current_col < 5:
+                        grid.typed_letters[grid.current_row][grid.current_col] = letter
+                        grid.word.append(letter)
+                        grid.current_col += 1
+                    break  # Prevent inserting multiple letters
             
     grid.draw_grid_squares(SCREEN)
     pygame.display.update()

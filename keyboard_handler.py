@@ -1,4 +1,3 @@
-from grid import * 
 import pygame
 
 class Letter:
