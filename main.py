@@ -2,14 +2,18 @@ import pygame
 import sys
 from grid import *
 from colors import *
+from keyboard_handler import Letter
 
 pygame.init()
+
+FONT = pygame.font.SysFont(None, 40)  # You can tweak the size
 
 
 grid = Grid()
 grid.got_word()
+key = Letter()
 
-SCREEN = pygame.display.set_mode((1200, 1000))
+SCREEN = pygame.display.set_mode((1200, 900))
 width, height = SCREEN.get_size()
 
 pygame.display.set_caption("Wordle")
@@ -24,6 +28,34 @@ while True:
         pygame.draw.rect(SCREEN, GRAY, square)
         inset_rect = square.inflate(-2, -2)
         pygame.draw.rect(SCREEN, BLACK, inset_rect)
+    
+    for letter, rect in key.draw_line1(SCREEN):
+        pygame.draw.rect(SCREEN, GRAY, rect)
+    
+        # Render the letter text
+        text_surface = FONT.render(letter, True, WHITE)
+        text_rect = text_surface.get_rect(center=rect.center)
+        SCREEN.blit(text_surface, text_rect)
+
+    
+    for letter, rect in key.draw_line2(SCREEN):
+        pygame.draw.rect(SCREEN, GRAY, rect)
+    
+        # Render the letter text
+        text_surface = FONT.render(letter, True, WHITE)
+        text_rect = text_surface.get_rect(center=rect.center)
+        SCREEN.blit(text_surface, text_rect)
+
+        
+
+    for letter, rect in key.draw_line3(SCREEN):
+        pygame.draw.rect(SCREEN, GRAY, rect)
+    
+        # Render the letter text
+        text_surface = FONT.render(letter, True, WHITE)
+        text_rect = text_surface.get_rect(center=rect.center)
+        SCREEN.blit(text_surface, text_rect)
+
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

@@ -13,7 +13,7 @@ class Grid:
     def __init__(self):
         self.num_cols = 5
         self.num_rows = 6
-        self.grid_size = 70
+        self.grid_size = 65
         self.grid = [[0 for i in range(self.num_cols)] for j in range(self.num_rows)]
         self.typed_letters = [["" for i in range(self.num_cols)] for j in range(self.num_rows)]
         self.current_col = 0
@@ -32,7 +32,7 @@ class Grid:
         squares = []
         for row in range(self.num_rows):
             for column in range(self.num_cols):
-                rect = pygame.Rect(column*self.grid_size+450, row*self.grid_size+260, self.grid_size-5, self.grid_size-5)
+                rect = pygame.Rect(column*self.grid_size+450, row*self.grid_size+120, self.grid_size-5, self.grid_size-5)
                 squares.append(rect)
 
 
