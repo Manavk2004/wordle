@@ -21,6 +21,7 @@ class Grid:
         self.current_row = 0
         self.actual_wordle = []
         self.word = []
+        self.used_keys = {}
 
         
     
@@ -82,11 +83,14 @@ class Grid:
 
             if self.current_col == 5 and event.key == pygame.K_RETURN:
                 if len(self.word) == 5:
+                    for letter in self.typed_letters[self.current_row]:
+                        self.used_keys[letter] = True
                     self.check()
                     self.draw_grid_squares(surface)
                     self.current_row += 1
                     self.current_col = 0
                     self.word = []
+                    
             if event.key == pygame.K_BACKSPACE:
                 if self.current_col > 0:
                     self.current_col -= 1

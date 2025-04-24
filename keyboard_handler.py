@@ -6,6 +6,7 @@ class Letter:
         self.keyboard_line2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"]
         self.keyboard_line3 = ["Z", "X", "C", "V", "B", "N", "M"]
         self.grid_size = 60
+        self.used_keys = {}
     
     def draw_line1(self, surface):
         keys = []
@@ -46,4 +47,7 @@ class Letter:
             rect = pygame.Rect(start_x + index*spacing, y, self.grid_size, self.grid_size)
             keys.append((letter, rect))
         return keys
+    
+    
+
 

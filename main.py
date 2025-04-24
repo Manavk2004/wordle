@@ -32,7 +32,8 @@ while True:
 
     
     for letter, rect in key.draw_line1(SCREEN):
-        pygame.draw.rect(SCREEN, GRAY, rect)
+        color = BLACK if grid.used_keys.get(letter) else GRAY
+        pygame.draw.rect(SCREEN, color, rect)
     
         # Render the letter text
         text_surface = FONT.render(letter, True, WHITE)
@@ -41,8 +42,8 @@ while True:
 
     
     for letter, rect in key.draw_line2(SCREEN):
-        pygame.draw.rect(SCREEN, GRAY, rect)
-    
+        color = BLACK if  grid.used_keys.get(letter) else GRAY
+        pygame.draw.rect(SCREEN, color, rect)
         # Render the letter text
         text_surface = FONT.render(letter, True, WHITE)
         text_rect = text_surface.get_rect(center=rect.center)
@@ -51,8 +52,8 @@ while True:
 
 
     for letter, rect in key.draw_line3(SCREEN):
-        pygame.draw.rect(SCREEN, GRAY, rect)
-    
+        color = BLACK if  grid.used_keys.get(letter) else GRAY
+        pygame.draw.rect(SCREEN, color, rect)
         # Render the letter text
         text_surface = FONT.render(letter, True, WHITE)
         text_rect = text_surface.get_rect(center=rect.center)
