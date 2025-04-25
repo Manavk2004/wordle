@@ -24,6 +24,8 @@ MIN_HEIGHT = 600
 
 while True:
     SCREEN.fill(BLACK)
+
+
     for square in grid.draw_grid_squares(SCREEN):
         pygame.draw.rect(SCREEN, GRAY, square)
         inset_rect = square.inflate(-2, -2)
@@ -81,8 +83,10 @@ while True:
                         grid.typed_letters[grid.current_row][grid.current_col] = letter
                         grid.word.append(letter)
                         grid.current_col += 1
-                    break  # Prevent inserting multiple letters
-            
+                    break  # Prevent inserting multiple letter
+
     grid.draw_grid_squares(SCREEN)
+    if grid.reveal_word:
+        grid.display(SCREEN)
     pygame.display.update()
     clock.tick(60)
