@@ -135,15 +135,18 @@ class Grid:
 
 
     def display(self, screen):
-
-
         box_width, box_height = 150, 50
         start_x = 540
         start_y = 50
         real_word_result = pygame.Rect(start_x, start_y, box_width, box_height)
-        pygame.draw.rect(screen, WHITE, real_word_result)
+        pygame.draw.rect(screen, WHITE, real_word_result, border_radius=10)
+        
+        font = pygame.font.SysFont(None, 36)
+        text_surface = font.render("".join(self.actual_wordle), True, BLACK)
+        text_rect = text_surface.get_rect(center=real_word_result.center)
 
-    
+        screen.blit(text_surface, text_rect)
+        
 
 
 
